@@ -101,7 +101,7 @@ The resulting contact information strings should have a space between the first 
 
 Log the result of your new array. */
 const contactInfo = [];
-  for(i = 0; i < graduates.length; i++){
+  for( let i = 0; i < graduates.length; i++){
     contactInfo.push(`${graduates[i].first_name} ${graduates[i].email}`);
   }
 
@@ -109,7 +109,7 @@ console.log(contactInfo);
 
 /* Request 3: Find out how many universities have the string "Uni" included in their name. Create a new array called unisWithUni that contains them all. This will be an array of objects. Log the result. */
 const unisWithUni = [];
-  for(i = 0; i < graduates.length; i++){
+  for( let i = 0; i < graduates.length; i++){
     if(graduates[i].university.includes('Uni')){
      unisWithUni.push(graduates[i].university);
     }
@@ -155,14 +155,9 @@ The zoos need a list of all their animal's names (animal_name only) converted to
 
 */
 
-  const lowCaseAnimalNames = [];
-
-// function lowCaseAnimals(zooAnimals) {
-//   let lowCaseAnimalNames = zooAnimals.map(items => {
-//     return items.animal_name.toLowercase();
-//   })
-//   return lowCaseAnimalNames;
-// }
+ let lowCaseAnimalNames = zooAnimals.map((zooAnimal, index, zooAnimals) => {
+   return zooAnimal.animal_name.toLowerCase();
+ })
 console.log(lowCaseAnimalNames);
 
 
@@ -178,9 +173,6 @@ The zoos are concerned about animals with a lower population count. Using filter
 
 
 const lowPopulationAnimals = zooAnimals.filter(items => items.population < 5);
-
-
-
 console.log(lowPopulationAnimals);
 
 /* Request 4: .reduce() 
@@ -192,7 +184,7 @@ The zoos need to know their total animal population across the United States. Fi
 
 
 const populationTotal = zooAnimals.reduce((population, zooAnimal) => {
-  return += zooAnimal.population;
+  return  zooAnimal.population;
 }, 0);
 
 
